@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Helvetica Neue", Helvetica, Inter, Arial, sans-serif;
+  --font-serif: "Times New Roman", Georgia, serif;
+
+  /* Paleta Solvia — céu + sol, com um toque de verde */
+  --color-ink: #14202b;
+  --color-paper: #f7fafc;
+  --color-sun: #f9c93c;
+  --color-sun-soft: #fff3c4;
+  --color-azure: #62b6ee;
+  --color-azure-soft: #e4f2fc;
+  --color-azure-deep: #1d78c4;
+  --color-night: #0e2a45;
+  --color-night-2: #153a5c;
+  --color-leaf: #31500d;
+  --color-leaf-soft: #b6d67a;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  background: #f7fafc;
+  color: #14202b;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #f9c93c;
+  color: #14202b;
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+/* slider do simulador */
+input[type="range"] {
+  appearance: none;
+  height: 3px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.18);
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #f9c93c;
+  border: 3px solid #153a5c;
+  box-shadow: 0 0 0 6px rgba(249, 201, 60, 0.18);
+  cursor: grab;
+  transition: transform 0.2s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #f9c93c;
+  border: 3px solid #153a5c;
+  cursor: grab;
+}
+
+input[type="range"]:focus-visible {
+  box-shadow: 0 0 0 3px rgba(249, 201, 60, 0.5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
