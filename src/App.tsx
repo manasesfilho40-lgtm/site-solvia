@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, MotionConfig } from "framer-motion";
-import { ArrowDown, ArrowRight, BadgeCheck, Menu, ShieldCheck, Star, Sun, X } from "lucide-react";
+import { ArrowRight, BadgeCheck, Menu, ShieldCheck, Star, Sun, X } from "lucide-react";
 import { features, img, segments, srcset, stats, testimonials } from "./lib/data";
 import { Btn, Eyebrow, Logo, Reveal } from "./components/ui";
 import Simulator from "./components/Simulator";
@@ -52,7 +52,7 @@ function Header() {
 
         <a href="#simulador" className="hidden items-center gap-3 text-[11px] md:flex">
           Simule sua economia
-          <span className="grid size-6 place-items-center rounded-full bg-sun text-ink">
+          <span className="grid size-6 place-items-center rounded-full bg-white text-ink">
             <ArrowRight size={12} />
           </span>
         </a>
@@ -92,59 +92,78 @@ function Hero() {
         alt="Usina de energia solar ao amanhecer"
         className="absolute inset-0 h-full w-full object-cover"
       />
-      {/* overlay escurecido para contraste do texto no mobile + brilho de sol */}
-      <div className="absolute inset-0 bg-gradient-to-b from-night/70 via-night/55 to-night/90" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_16%,rgba(249,201,60,0.38),transparent_42%)]" />
+      {/* véu à esquerda para o texto, céu limpo à direita + brilho de sol */}
+      <div className="absolute inset-0 bg-gradient-to-r from-night/60 via-night/25 to-night/5" />
+      <div className="absolute inset-0 bg-gradient-to-b from-night/25 via-transparent to-night/45" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_16%,rgba(249,201,60,0.30),transparent_42%)]" />
 
-      <div className="relative z-10 flex min-h-[100svh] flex-col items-center justify-center px-6 pb-14 text-center text-white md:min-h-[97vh] md:pb-0">
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.9 }}
-          className="mb-7 inline-flex items-center gap-2 rounded-full bg-sun px-4 py-2 text-[10px] font-medium uppercase tracking-[0.22em] text-ink"
-        >
-          <Sun size={12} strokeWidth={2.2} /> Energia solar fotovoltaica desde 2012
-        </motion.p>
+      <div className="relative z-10 flex min-h-[100svh] flex-col justify-center px-6 pb-14 text-white md:min-h-[97vh] md:px-14 md:pb-0">
+        <div className="mx-auto grid w-full max-w-[1450px] items-end gap-10 md:grid-cols-[1.4fr_.8fr]">
+          <div>
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.9 }}
+              className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-white/40 bg-white/20 px-4 py-2 text-[10px] font-medium uppercase tracking-[0.22em] text-white backdrop-blur-md"
+            >
+              <span className="size-1.5 rounded-full bg-emerald-400" /> Energia solar fotovoltaica desde 2012
+            </motion.p>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 38 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.35, duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-5xl text-[clamp(3.4rem,12vw,9rem)] font-light leading-[0.86] tracking-[-0.065em]"
-        >
-          Energia
-          <br />
-          <span className="font-serif italic text-sun">Solar</span> para sempre
-        </motion.h1>
+            <motion.h1
+              initial={{ opacity: 0, y: 38 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.35, duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+              className="max-w-[12ch] text-[clamp(2.9rem,6.6vw,6.2rem)] font-light leading-[1.03] tracking-[-0.04em]"
+            >
+              Energia
+              <Sun className="mx-1 inline-block size-[0.6em] fill-sun text-sun" strokeWidth={1.2} />
+              solar,
+              <br />
+              <span className="font-serif italic">para sempre.</span>
+            </motion.h1>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.9, duration: 1 }}
-          className="mt-9 flex flex-col items-center"
-        >
-          <Btn href="#simulador" variant="sun" className="px-6 py-4 text-[12px] uppercase tracking-[0.14em]">
-            Simule sua economia
-          </Btn>
-        </motion.div>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8, duration: 1 }}
+              className="mt-8 max-w-md text-sm leading-relaxed text-white/85"
+            >
+              Projeto, instalação e homologação de sistemas fotovoltaicos para residências, empresas e agronegócio —
+              com até <strong className="font-semibold text-white">95% de economia</strong> na conta de luz.
+            </motion.p>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.1, duration: 1 }}
-          className="mt-9 hidden max-w-md px-4 text-xs leading-relaxed text-white/85 md:block"
-        >
-          Projeto, instalação e homologação de sistemas fotovoltaicos para residências, empresas e agronegócio — com
-          até 95% de economia na conta de luz.
-        </motion.p>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1, duration: 1 }}
+              className="mt-12 flex items-center gap-4"
+            >
+              <div className="flex -space-x-3">
+                <img src={img.roofInstallSm} alt="" className="size-10 rounded-full object-cover ring-2 ring-white" />
+                <img src={img.technician} alt="" className="size-10 rounded-full object-cover ring-2 ring-white" />
+                <img src={img.closeupSm} alt="" className="size-10 rounded-full object-cover ring-2 ring-white" />
+              </div>
+              <p className="text-xs leading-tight text-white/85">
+                <span className="block text-base font-semibold text-white">2.400+</span>
+                sistemas instalados
+              </p>
+            </motion.div>
+          </div>
 
-        <a
-          href="#solucoes"
-          className="absolute bottom-8 right-8 hidden size-10 place-items-center rounded-full border border-white/40 transition-colors hover:border-sun hover:bg-sun hover:text-ink md:grid"
-          aria-label="Rolar para baixo"
-        >
-          <ArrowDown size={15} />
-        </a>
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-col items-start gap-5 md:items-end"
+          >
+            <p className="max-w-[270px] text-[13px] leading-relaxed text-white/85">
+              Simule sua economia em segundos e receba projeto, geração e prazo por escrito em até 24 horas.
+            </p>
+            <Btn href="#simulador" variant="light" className="shrink-0">
+              Simular minha economia
+            </Btn>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

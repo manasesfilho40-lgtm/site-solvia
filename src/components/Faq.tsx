@@ -82,7 +82,7 @@ export default function Faq() {
                       </span>
                       <span
                         className={`grid size-8 shrink-0 place-items-center rounded-full transition-colors ${
-                          open === i ? "bg-sun text-ink" : "bg-azure-soft text-azure-deep"
+                          open === i ? "bg-white text-ink" : "bg-azure-soft text-azure-deep"
                         }`}
                       >
                         <Plus size={16} className={`transition-transform duration-400 ${open === i ? "rotate-45" : ""}`} />

@@ -17,8 +17,8 @@ export function Btn({
 }) {
   const styles: Record<Variant, string> = {
     dark: "gap-5 rounded-full bg-ink px-6 py-3.5 text-white hover:bg-azure-deep",
-    light: "gap-5 rounded-full bg-white px-6 py-3.5 text-ink hover:bg-sun",
-    sun: "gap-5 rounded-full bg-sun px-6 py-3.5 text-ink hover:bg-white",
+    light: "gap-5 rounded-full bg-white px-6 py-3.5 text-ink hover:bg-white/85",
+    sun: "gap-5 rounded-full bg-white px-6 py-3.5 text-ink hover:bg-white/85",
     sky: "gap-5 rounded-full bg-azure-deep px-6 py-3.5 text-white hover:bg-ink",
     outline: "gap-5 rounded-full border border-white/60 px-6 py-3.5 text-white hover:border-white hover:bg-white/10",
     link: "-my-3.5 gap-2 py-3.5 text-[12px] text-ink underline-offset-4 hover:text-azure-deep hover:underline",
